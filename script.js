@@ -27,9 +27,8 @@ $(function (){
   var currentTime = dayjs().format('H');
    
 $(".time-block").each(function(){
-    var blockId = $(this).attr("id");
-    var blockTime = parseInt(blockId.replace(/^\D+/g, ''));
-    console.log(currentTime);
+    var blockTime = parseInt($(this).attr("data-hour"));
+   
 
     if (blockTime < currentTime){
       $(this).removeClass("future present").addClass("past");
@@ -62,6 +61,7 @@ $(".time-block").each(function(){
   $("#hour-15.description").val(localStorage.getItem("hour-15"));
   $("#hour-16.description").val(localStorage.getItem("hour-16"));
   $("#hour-17.description").val(localStorage.getItem("hour-17"));
+  
 
   compareTime();
 
